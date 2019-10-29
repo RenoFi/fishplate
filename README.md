@@ -2,6 +2,8 @@
 
 Fishplate is a library allowing running ActiveRecord without Railties
 
+![fishplate](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fishplate_UK_2006.jpg/440px-Fishplate_UK_2006.jpg "Fishplate")
+
 ## Installation
 
 Add this line to your application's Gemfile:
