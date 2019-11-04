@@ -1,9 +1,11 @@
-require 'fishplate/version'
 require 'a9n'
 require 'active_model'
 require 'active_record'
 require 'active_support/all'
 require 'logger'
+
+require 'fishplate/version'
+require 'fishplate/rack'
 
 module Fishplate
   class << self
