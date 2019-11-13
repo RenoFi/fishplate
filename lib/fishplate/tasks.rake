@@ -20,7 +20,7 @@ end
 desc "Setup database"
 task "db:setup" => ["fail_if_prod", "db:create", "db:schema:load"]
 
-desc "Generate new migration with name given, e.g. rake generate:migration[CreateUsers]"
+desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
 namespace :generate do
   task :migration, [:name] do |name, args|
     klass     = args[:name].gsub('-','_').camelize

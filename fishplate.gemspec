@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = 'https://github.com/RenoFi/fishplate'
 
   spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(bin|spec|features)/}) }
   end
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.6'
 
-  spec.add_dependency 'a9n', '>= 0.9.1'
+  spec.add_dependency 'a9n', '~> 0.10'
   spec.add_dependency 'activemodel'
   spec.add_dependency 'activerecord'
   spec.add_dependency 'activesupport'
