@@ -6,6 +6,7 @@ require 'logger'
 
 require 'fishplate/version'
 require 'fishplate/rack'
+require 'fishplate/sidekiq_middleware'
 
 module Fishplate
   class << self
@@ -61,6 +62,18 @@ module Fishplate
       ActiveRecord::Base.flush_idle_connections!
 
       ActiveRecord::Base.establish_connection
+
+      add_sidekiq_middleware if defined?(Sidekiq)
+    end
+
+    private
+
+    def add_sidekiq_middleware
+      Sidekiq.configure_server do |config|
+        config.server_middleware do |chain|
+          chain.add Fishplate::SidekiqMiddleware
+        end
+      end
     end
   end
 end
