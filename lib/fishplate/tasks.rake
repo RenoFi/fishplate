@@ -23,7 +23,7 @@ task "db:setup" => ["fail_if_prod", "db:create", "db:schema:load"]
 desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
 namespace :generate do
   task :migration, [:name] do |name, args|
-    klass     = args[:name].gsub('-','_').camelize
+    klass     = args[:name].tr('-', '_').camelize
     number    = ActiveRecord::Migration.next_migration_number(0)
     file_name = "#{number}_#{klass.underscore}.rb"
     file_path = A9n.root.join("db/migrate", file_name)
