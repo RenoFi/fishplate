@@ -12,14 +12,6 @@ task console: :environment do
   IRB.start
 end
 
-desc "Ensure that task is not run in production environment"
-task fail_if_prod: :environment do
-  fail "Task cannot be run in production environment!" if A9n.env.production?
-end
-
-desc "Setup database"
-task "db:setup" => ["fail_if_prod", "db:create", "db:schema:load"]
-
 desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
 namespace :generate do
   task :migration, [:name] do |name, args|
