@@ -40,7 +40,7 @@ module Fishplate
     end
 
     def setup!
-      Dir.glob(A9n.root.join('config/initializers/*.rb')).each { |f| require f }
+      A9n.root.join('config/initializers').glob('*.rb').each { |f| require f }
 
       # Check active_record/railtie for default config
       ActiveRecord::Base.logger = logger
