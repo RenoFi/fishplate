@@ -42,13 +42,26 @@ module Fishplate
     def setup!
       A9n.root.join('config/initializers').glob('*.rb').each { |f| require f }
 
-      # Check active_record/railtie for default config
+      configure_active_record
+
+      setup_database_tasks
+
+      setup_db_connection
+
+      add_sidekiq_middleware if defined?(Sidekiq)
+    end
+
+    private
+
+    def configure_active_record
       ActiveRecord::Base.logger = logger
       ActiveRecord::Base.time_zone_aware_attributes = true
       ActiveRecord::Base.default_timezone = :utc
       ActiveRecord::Base.connection_handlers = { ActiveRecord::Base.writing_role => ActiveRecord::Base.default_connection_handler }
       ActiveRecord::Base.configurations = database_configuration
+    end
 
+    def setup_database_tasks
       # Check active_record/tasks/database_tasks.rb for possible config values
       ActiveRecord::Tasks::DatabaseTasks.env = A9n.env
       ActiveRecord::Tasks::DatabaseTasks.database_configuration = database_configuration
@@ -57,16 +70,13 @@ module Fishplate
       ActiveRecord::Tasks::DatabaseTasks.migrations_paths = A9n.root.join('db/migrate')
       ActiveRecord::Tasks::DatabaseTasks.seed_loader = self
       ActiveRecord::Tasks::DatabaseTasks.root = A9n.root
-
-      ActiveRecord::Base.clear_active_connections!
-      ActiveRecord::Base.flush_idle_connections!
-
-      ActiveRecord::Base.establish_connection
-
-      add_sidekiq_middleware if defined?(Sidekiq)
     end
 
-    private
+    def setup_db_connection
+      ActiveRecord::Base.clear_active_connections!
+      ActiveRecord::Base.flush_idle_connections!
+      ActiveRecord::Base.establish_connection
+    end
 
     def add_sidekiq_middleware
       Sidekiq.configure_server do |config|
