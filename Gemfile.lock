@@ -64,6 +64,7 @@ GEM
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
+    sqlite3 (1.4.2)
     thread_safe (0.3.6)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
@@ -83,6 +84,7 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-performance
+  sqlite3
 
 BUNDLED WITH
    1.17.3
