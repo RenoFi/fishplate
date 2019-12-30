@@ -40,13 +40,13 @@ module Fishplate
     end
 
     def setup!
-      A9n.root.join('config/initializers').glob('*.rb').sort.each { |f| require f }
-
       configure_active_record
 
       setup_database_tasks
 
       setup_db_connection
+
+      load_initializers
 
       add_sidekiq_middleware if defined?(Sidekiq)
     end
@@ -76,6 +76,10 @@ module Fishplate
       ActiveRecord::Base.clear_active_connections!
       ActiveRecord::Base.flush_idle_connections!
       ActiveRecord::Base.establish_connection
+    end
+
+    def load_initializers
+      A9n.root.join('config/initializers').glob('*.rb').sort.each { |f| require f }
     end
 
     def add_sidekiq_middleware
