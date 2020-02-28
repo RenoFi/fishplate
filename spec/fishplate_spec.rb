@@ -6,13 +6,13 @@ RSpec.describe Fishplate do
   end
 
   describe '.setup!' do
-    subject { Fishplate.setup! }
+    subject { described_class.setup! }
 
     context 'when an app is configured correctly' do
       before { TestApp.new }
 
       it 'initializes without exception' do
-        expect { subject }.to_not raise_exception
+        expect { subject }.not_to raise_exception
       end
     end
   end
