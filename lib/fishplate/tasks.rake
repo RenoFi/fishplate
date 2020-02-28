@@ -15,11 +15,11 @@ end
 desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
 namespace :generate do
   task :migration, [:name] do |name, args|
-    klass     = args[:name].tr('-', '_').camelize
-    number    = ActiveRecord::Migration.next_migration_number(0)
+    klass = args[:name].tr('-', '_').camelize
+    number = ActiveRecord::Migration.next_migration_number(0)
     file_name = "#{number}_#{klass.underscore}.rb"
     file_path = A9n.root.join("db/migrate", file_name)
-    content   = <<-CONTENT
+    content = <<-CONTENT
       |class #{klass} < ActiveRecord::Migration[#{ActiveRecord::Migration.current_version}]
       |  def change
       |  end
