@@ -1,11 +1,9 @@
 [![Gem Version](https://badge.fury.io/rb/fishplate.svg)](https://rubygems.org/gems/fishplate)
 [![Build Status](https://travis-ci.org/RenoFi/fishplate.svg?branch=master)](https://travis-ci.org/RenoFi/fishplate)
-[![GitHub issues](https://img.shields.io/github/issues/renofi/fishplate)](https://github.com/renofi/fishplate/issues)
-[![GitHub license](https://img.shields.io/github/license/renofi/fishplate)](https://github.com/RenoFi/fishplate/blob/master/LICENSE.txt)
 
-# Fishplate
+# fishplate
 
-Fishplate is a library to run `ActiveRecord` without `railties` gem
+`fishplate` is a library to run `ActiveRecord` without `railties` gem
 
 ![fishplate](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fishplate_UK_2006.jpg/440px-Fishplate_UK_2006.jpg "Fishplate")
 
