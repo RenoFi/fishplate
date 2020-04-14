@@ -18,7 +18,8 @@ namespace :generate do
     klass = args[:name].tr('-', '_').camelize
     number = ActiveRecord::Migration.next_migration_number(0)
     file_name = "#{number}_#{klass.underscore}.rb"
-    file_path = A9n.root.join("db/migrate", file_name)
+    relative_file_path = File.join("db/migrate", file_name)
+    file_path = A9n.root.join(relative_file_path)
     content = <<-CONTENT
       |class #{klass} < ActiveRecord::Migration[#{ActiveRecord::Migration.current_version}]
       |  def change
@@ -26,6 +27,7 @@ namespace :generate do
       |end
     CONTENT
     File.open(file_path, "w+") { |f| f.write(content.gsub(/( +\|)/, '')) }
+    puts "Created migration file: #{relative_file_path}"
   end
 end
 
