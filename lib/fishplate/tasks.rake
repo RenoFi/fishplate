@@ -30,17 +30,3 @@ namespace :generate do
     puts "Created migration file: #{relative_file_path}"
   end
 end
-
-begin
-  require "rspec/core/rake_task"
-  RSpec::Core::RakeTask.new(:spec)
-rescue LoadError
-  # ignore
-end
-
-begin
-  require "rubocop/rake_task"
-  RuboCop::RakeTask.new
-rescue LoadError
-  # ignore
-end
