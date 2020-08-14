@@ -36,7 +36,7 @@ module Fishplate
     attr_writer :logger
 
     def logger
-      @logger ||= ::Logger.new(STDOUT)
+      @logger ||= ::Logger.new($stdout)
     end
 
     def setup!
