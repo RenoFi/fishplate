@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fishplate (1.0.5)
+    fishplate (1.0.6)
       a9n (~> 1.0)
       activemodel (~> 6.0)
       activerecord (~> 6.0)
