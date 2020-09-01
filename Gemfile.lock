@@ -31,7 +31,7 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
