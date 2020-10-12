@@ -43,7 +43,7 @@ Fishplate.load_tasks
 Available rake tasks are:
 ```
 rake console                            # Run application console
-rake generate:migration[name]           # Generate new migration with name given, e.g
+rake generate:migration[name]           # Generate new migration with name given, e.g rake generate:migration[CreateUsers]
 
 rake db:create                          # Creates the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databases in the config). Wi...
 rake db:drop                            # Drops the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:drop:all to drop all databases in the config). Without ...
