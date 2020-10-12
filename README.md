@@ -65,17 +65,6 @@ rake db:structure:load                  # Recreates the databases from the struc
 rake db:version                         # Retrieves the current schema version number
 ```
 
-When `rubocop` is available:
-```
-rake rubocop                            # Run RuboCop
-rake rubocop:auto_correct               # Auto-correct RuboCop offenses
-```
-
-When `rspec` is available:
-```
-rake spec                               # Run RSpec code examples
-```
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/RenoFi/fishplate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
