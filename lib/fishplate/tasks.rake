@@ -12,8 +12,8 @@ task console: :environment do
   IRB.start
 end
 
-desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
 namespace :generate do
+  desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
   task :migration, [:name] do |name, args|
     klass = args[:name].tr('-', '_').camelize
     number = ActiveRecord::Migration.next_migration_number(0)
