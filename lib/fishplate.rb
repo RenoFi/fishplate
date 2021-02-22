@@ -18,7 +18,7 @@ module Fishplate
     def load_tasks
       Kernel.load 'active_record/railties/databases.rake'
       Kernel.load File.expand_path('fishplate/tasks.rake', __dir__)
-      A9n.root.join('lib/tasks').glob('*.rake').sort.each { |f| Kernel.load f }
+      A9n.root.join('lib/tasks').glob('**/*.rake').sort.each { |f| Kernel.load f }
     end
 
     def database_configuration
