@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/fishplate.svg)](https://rubygems.org/gems/fishplate)
-[![Build Status](https://travis-ci.org/RenoFi/fishplate.svg?branch=master)](https://travis-ci.org/RenoFi/fishplate)
+[![Build Status](https://github.com/RenoFi/fishplate/actions/workflows/ci.yml/badge.svg)](https://github.com/RenoFi/fishplate/actions/workflows/ci.yml?query=branch%3Amain)
 
 # fishplate
 
