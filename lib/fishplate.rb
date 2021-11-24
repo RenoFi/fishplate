@@ -12,6 +12,7 @@ module Fishplate
   class << self
     def load_seed
       return unless A9n.root.join('db/seeds.rb').exist?
+
       Kernel.load A9n.root.join('db/seeds.rb')
     end
 
