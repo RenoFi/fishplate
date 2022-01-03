@@ -26,7 +26,7 @@ namespace :generate do
       |  end
       |end
     CONTENT
-    File.open(file_path, "w+") { |f| f.write(content.gsub(/( +\|)/, '')) }
+    File.write(file_path, content.gsub(/( +\|)/, ''))
     puts "Created migration file: #{relative_file_path}"
   end
 end
