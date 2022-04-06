@@ -2,7 +2,7 @@ require './spec/app/app'
 
 RSpec.describe Fishplate do
   it "has a version number" do
-    expect(Fishplate::VERSION).not_to be nil
+    expect(Fishplate::VERSION).not_to be_nil
   end
 
   describe '.setup!' do
