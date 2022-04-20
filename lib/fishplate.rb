@@ -23,7 +23,14 @@ module Fishplate
     end
 
     def database_configuration
-      @database_configuration ||= YAML.load(ERB.new(A9n.root.join('config/database.yml').read).result)
+      @database_configuration ||= begin
+        content = ERB.new(A9n.root.join('config/database.yml').read).result
+        if RUBY_VERSION >= '3.1'
+          YAML.load(content, aliases: true)
+        else
+          YAML.load(content)
+        end
+      end
     end
 
     def time_zone=(value)
