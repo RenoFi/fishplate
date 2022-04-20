@@ -23,7 +23,7 @@ module Fishplate
     end
 
     def database_configuration
-      @database_configuration ||= YAML.load(ERB.new(A9n.root.join('config/database.yml').read).result) # rubocop:disable Security/YAMLLoad
+      @database_configuration ||= YAML.load(ERB.new(A9n.root.join('config/database.yml').read).result)
     end
 
     def time_zone=(value)
