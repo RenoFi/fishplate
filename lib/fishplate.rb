@@ -56,6 +56,8 @@ module Fishplate
 
       load_initializers
 
+      add_i18n_load_paths if defined?(I18n)
+
       add_sidekiq_middleware if defined?(Sidekiq)
     end
 
@@ -87,6 +89,10 @@ module Fishplate
 
     def load_initializers
       A9n.root.join('config/initializers').glob('*.rb').sort.each { |f| require f }
+    end
+
+    def add_i18n_load_paths
+      I18n.load_path |= A9n.root.join('config/locales').glob('**/*.yml')
     end
 
     def add_sidekiq_middleware
