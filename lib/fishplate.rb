@@ -66,6 +66,7 @@ module Fishplate
     def configure_active_record
       ActiveRecord.default_timezone = :utc
       ActiveRecord::Base.logger = logger
+      ActiveRecord::Base.logger.level = ENV['LOG_LEVEL'] || 'debug'
       ActiveRecord::Base.time_zone_aware_attributes = true
       ActiveRecord::Base.configurations = database_configuration
     end
