@@ -31,13 +31,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '~> 7.0'
   spec.add_dependency 'rake', '~> 13'
   spec.add_dependency 'tzinfo-data'
-
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-rake'
-  spec.add_development_dependency 'rubocop-rspec'
-  spec.add_development_dependency 'sqlite3'
 end
