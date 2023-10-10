@@ -23,12 +23,12 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 3.0'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.add_dependency 'a9n', '~> 1.0'
-  spec.add_dependency 'activemodel', '~> 7.0'
-  spec.add_dependency 'activerecord', '~> 7.0'
-  spec.add_dependency 'activesupport', '~> 7.0'
+  spec.add_dependency 'activemodel', '~> 7.1'
+  spec.add_dependency 'activerecord', '~> 7.1'
+  spec.add_dependency 'activesupport', '~> 7.1'
   spec.add_dependency 'rake', '~> 13'
   spec.add_dependency 'tzinfo-data'
 end

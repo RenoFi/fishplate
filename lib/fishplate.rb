@@ -83,8 +83,8 @@ module Fishplate
     end
 
     def setup_db_connection
-      ActiveRecord::Base.clear_active_connections!
-      ActiveRecord::Base.flush_idle_connections!
+      ActiveRecord::Base.connection_handler.clear_active_connections!
+      ActiveRecord::Base.connection_handler.flush_idle_connections!
       ActiveRecord::Base.establish_connection
     end
 
