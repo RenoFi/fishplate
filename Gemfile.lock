@@ -3,9 +3,9 @@ PATH
   specs:
     fishplate (7.1.0)
       a9n (~> 1.0)
-      activemodel (~> 7.1)
-      activerecord (~> 7.1)
-      activesupport (~> 7.1)
+      activemodel (~> 7.0)
+      activerecord (~> 7.0)
+      activesupport (~> 7.0)
       rake (~> 13)
       tzinfo-data
 
