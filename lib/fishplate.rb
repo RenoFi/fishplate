@@ -64,6 +64,7 @@ module Fishplate
     private
 
     def configure_active_record
+      ActiveRecord.eager_load!
       ActiveRecord.default_timezone = :utc
       ActiveRecord::Base.logger = logger
       ActiveRecord::Base.logger.level = ENV['LOG_LEVEL'] || 'debug'
@@ -85,6 +86,7 @@ module Fishplate
     def setup_db_connection
       ActiveRecord::Base.connection_handler.clear_active_connections!(:all)
       ActiveRecord::Base.connection_handler.flush_idle_connections!(:all)
+      ActiveRecord::Base.establish_connection
     end
 
     def load_initializers
