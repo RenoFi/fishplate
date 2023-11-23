@@ -1,3 +1,3 @@
 module Fishplate
-  VERSION = "7.1.0.3".freeze
+  VERSION = "7.1.2.0".freeze
 end
