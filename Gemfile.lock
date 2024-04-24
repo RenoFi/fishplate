@@ -97,7 +97,7 @@ GEM
     rubocop-rspec_rails (2.28.3)
       rubocop (~> 1.40)
     ruby-progressbar (1.13.0)
-    sqlite3 (2.0.1)
+    sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
@@ -118,7 +118,7 @@ DEPENDENCIES
   rubocop
   rubocop-rake
   rubocop-rspec
-  sqlite3
+  sqlite3 (~> 1.4)
 
 BUNDLED WITH
    2.5.9
