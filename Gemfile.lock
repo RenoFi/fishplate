@@ -12,7 +12,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    a9n (1.5.1)
+    a9n (1.6.0)
+      ostruct
     activemodel (8.0.2.1)
       activesupport (= 8.0.2.1)
     activerecord (8.0.2.1)
@@ -50,6 +51,7 @@ GEM
     method_source (1.1.0)
     mini_portile2 (2.8.9)
     minitest (5.25.5)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
