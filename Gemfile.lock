@@ -14,13 +14,13 @@ GEM
   specs:
     a9n (1.6.0)
       ostruct
-    activemodel (8.0.2.1)
-      activesupport (= 8.0.2.1)
-    activerecord (8.0.2.1)
-      activemodel (= 8.0.2.1)
-      activesupport (= 8.0.2.1)
+    activemodel (8.0.3)
+      activesupport (= 8.0.3)
+    activerecord (8.0.3)
+      activemodel (= 8.0.3)
+      activesupport (= 8.0.3)
       timeout (>= 0.4.0)
-    activesupport (8.0.2.1)
+    activesupport (8.0.3)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -76,7 +76,7 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.5)
+    rspec-support (3.13.6)
     rubocop (1.81.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
