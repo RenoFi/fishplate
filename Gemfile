@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gemspec
 
 gem 'bundler'
-gem 'openssl'
+gem 'openssl', '~> 3.2'
 gem 'pry'
 gem 'rake'
 gem 'rspec'
