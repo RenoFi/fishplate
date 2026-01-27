@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    fishplate (8.0.1)
+    fishplate (8.1.2)
       a9n (~> 1.0)
-      activemodel (~> 8.0)
-      activerecord (~> 8.0)
-      activesupport (~> 8.0)
+      activemodel (~> 8.1)
+      activerecord (~> 8.1)
+      activesupport (~> 8.1)
       rake
       tzinfo-data
 
@@ -151,4 +151,4 @@ DEPENDENCIES
   sqlite3 (~> 2.7)
 
 BUNDLED WITH
-  4.0.3
+  4.0.4
