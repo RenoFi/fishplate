@@ -1,7 +1,7 @@
-require 'bundler/setup'
-require 'pry'
-require 'fishplate'
-require 'sqlite3'
+require "bundler/setup"
+require "pry"
+require "fishplate"
+require "sqlite3"
 
 RSpec.configure do |config|
   config.disable_monkey_patching!

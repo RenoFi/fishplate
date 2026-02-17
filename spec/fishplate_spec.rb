@@ -1,17 +1,17 @@
-require './spec/app/app'
+require "./spec/app/app"
 
 RSpec.describe Fishplate do
   it "has a version number" do
     expect(Fishplate::VERSION).not_to be_nil
   end
 
-  describe '.setup!' do
+  describe ".setup!" do
     subject { described_class.setup! }
 
-    context 'when an app is configured correctly' do
+    context "when an app is configured correctly" do
       before { TestApp.new }
 
-      it 'initializes without exception' do
+      it "initializes without exception" do
         expect { subject }.not_to raise_exception
       end
     end

@@ -1,31 +1,31 @@
-require 'a9n'
-require 'active_model'
-require 'active_record'
-require 'active_support/all'
-require 'logger'
+require "a9n"
+require "active_model"
+require "active_record"
+require "active_support/all"
+require "logger"
 
-require 'fishplate/version'
-require 'fishplate/rack'
-require 'fishplate/sidekiq_middleware'
+require "fishplate/version"
+require "fishplate/rack"
+require "fishplate/sidekiq_middleware"
 
 module Fishplate
   class << self
     def load_seed
-      return unless A9n.root.join('db/seeds.rb').exist?
+      return unless A9n.root.join("db/seeds.rb").exist?
 
-      Kernel.load A9n.root.join('db/seeds.rb')
+      Kernel.load A9n.root.join("db/seeds.rb")
     end
 
     def load_tasks
-      Kernel.load 'active_record/railties/databases.rake'
-      Kernel.load File.expand_path('fishplate/tasks.rake', __dir__)
-      A9n.root.join('lib/tasks').glob('**/*.rake').sort.each { |f| Kernel.load f }
+      Kernel.load "active_record/railties/databases.rake"
+      Kernel.load File.expand_path("fishplate/tasks.rake", __dir__)
+      A9n.root.join("lib/tasks").glob("**/*.rake").sort.each { |f| Kernel.load f }
     end
 
     def database_configuration
       @database_configuration ||= begin
-        content = ERB.new(A9n.root.join('config/database.yml').read).result
-        if RUBY_VERSION >= '3.1'
+        content = ERB.new(A9n.root.join("config/database.yml").read).result
+        if RUBY_VERSION >= "3.1"
           YAML.load(content, aliases: true)
         else
           YAML.load(content)
@@ -67,7 +67,7 @@ module Fishplate
       ActiveRecord.eager_load!
       ActiveRecord.default_timezone = :utc
       ActiveRecord::Base.logger = logger
-      ActiveRecord::Base.logger.level = ENV['LOG_LEVEL'] || 'debug'
+      ActiveRecord::Base.logger.level = ENV["LOG_LEVEL"] || "debug"
       ActiveRecord::Base.time_zone_aware_attributes = true
       ActiveRecord::Base.configurations = database_configuration
     end
@@ -76,9 +76,9 @@ module Fishplate
       # Check active_record/tasks/database_tasks.rb for possible config values
       ActiveRecord::Tasks::DatabaseTasks.env = A9n.env
       ActiveRecord::Tasks::DatabaseTasks.database_configuration = database_configuration
-      ActiveRecord::Tasks::DatabaseTasks.db_dir = A9n.root.join('db')
-      ActiveRecord::Tasks::DatabaseTasks.fixtures_path = A9n.root.join('db/fixtures')
-      ActiveRecord::Tasks::DatabaseTasks.migrations_paths = A9n.root.join('db/migrate')
+      ActiveRecord::Tasks::DatabaseTasks.db_dir = A9n.root.join("db")
+      ActiveRecord::Tasks::DatabaseTasks.fixtures_path = A9n.root.join("db/fixtures")
+      ActiveRecord::Tasks::DatabaseTasks.migrations_paths = A9n.root.join("db/migrate")
       ActiveRecord::Tasks::DatabaseTasks.seed_loader = self
       ActiveRecord::Tasks::DatabaseTasks.root = A9n.root
     end
@@ -90,11 +90,11 @@ module Fishplate
     end
 
     def load_initializers
-      A9n.root.join('config/initializers').glob('*.rb').sort.each { |f| require f }
+      A9n.root.join("config/initializers").glob("*.rb").sort.each { |f| require f }
     end
 
     def add_i18n_load_paths
-      I18n.load_path |= A9n.root.join('config/locales').glob('**/*.yml')
+      I18n.load_path |= A9n.root.join("config/locales").glob("**/*.yml")
     end
 
     def add_sidekiq_middleware

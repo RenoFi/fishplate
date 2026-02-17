@@ -15,7 +15,7 @@ end
 namespace :generate do
   desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
   task :migration, [:name] do |name, args|
-    klass = args[:name].tr('-', '_').camelize
+    klass = args[:name].tr("-", "_").camelize
     number = ActiveRecord::Migration.next_migration_number(0)
     file_name = "#{number}_#{klass.underscore}.rb"
     relative_file_path = File.join("db/migrate", file_name)
@@ -26,7 +26,7 @@ namespace :generate do
       |  end
       |end
     CONTENT
-    File.write(file_path, content.gsub(/( +\|)/, ''))
+    File.write(file_path, content.gsub(/( +\|)/, ""))
     puts "Created migration file: #{relative_file_path}"
   end
 end
