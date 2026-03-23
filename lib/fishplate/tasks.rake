@@ -12,6 +12,17 @@ task console: :environment do
   IRB.start
 end
 
+namespace :db do
+  desc "Reset database: drop, create, remove schema.rb, migrate, and prepare test db"
+  task :recreate do
+    raise "Only available in development or test environment" unless %w[development test].include?(A9n.env.to_s)
+
+    system("rake db:drop:all db:create:all") || abort("db:drop:all db:create:all failed")
+    FileUtils.rm_f("db/schema.rb")
+    system("rake db:migrate db:test:prepare") || abort("db:migrate db:test:prepare failed")
+  end
+end
+
 namespace :generate do
   desc "Generate new migration with name given, example: rake generate:migration[CreateUsers]"
   task :migration, [:name] do |name, args|
