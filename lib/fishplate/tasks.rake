@@ -15,7 +15,7 @@ end
 namespace :db do
   desc "Reset database: drop, create, remove schema.rb, migrate, and prepare test db"
   task recreate: :environment do
-    env_name = A9n.env || ENV["APP_ENV"] || ENV["RACK_ENV"] || ENV["RAILS_ENV"] || 'development'
+    env_name = A9n.env || ENV["APP_ENV"] || ENV["RACK_ENV"] || ENV["RAILS_ENV"] || "development"
     raise "Only available in development or test environment" unless %w[development test].include?(env_name)
 
     system("rake db:drop:all db:create:all") || abort("db:drop:all db:create:all failed")
